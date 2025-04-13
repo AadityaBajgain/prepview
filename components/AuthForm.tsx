@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -9,10 +8,8 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
 } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import SignIn from "@/app/(auth)/sign-in/page"
+
 import Link from "next/link"
-import { sign } from "crypto"
 import {toast} from "sonner";
 import FormField from "./FormField"
 import { useRouter } from "next/navigation"
@@ -42,10 +39,11 @@ const AuthForm = ({type}:{type:FormType}) => {
     try{
       if(type === "sign-up")
       {
-        toast.success("Account Created Successfully. Please Sign in.")
+        toast.success("Account Created Successfully. Please Sign in."); 
         router.push('/sign-in');
       }else{
         toast.success("Sign in Successfully.")
+        console.log("successfully signined")
         router.push('/');
       }
     }catch(error)
