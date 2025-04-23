@@ -20,24 +20,23 @@ const InterviewCard = ({userId,interviewId, role, type, techstack, createdAt}:In
             </p>
           </div>
           <Image src={getRandomInterviewCover()} alt="cover image" width={90} height={90} className="rounded-full object-fit size-[90px]"/>
-          <h3 className='mt-5 capitalize'>
+          <h3 className='mt-5 capitalize text-left'>
             {role} Interview
           </h3>
           <div className='flex flex-row gap-5 mt-3'>
-            <div className='flex flex-row gap-2'>
+            <div className='flex flex-row'>
               <Image src='/calendar.svg' alt='calendar' width={22} height={22}/>
               <p>{formattedDate}</p>
+            </div>
               <div className='flex flex-row gap-2 items-center'>
                 <Image src="/star.svg" alt="star" width={22} height={22}/>
                 <p>{feedback?.totalScore || '---'}/100</p>
-
               </div>
             </div>
             <p className='line-clamp-2 mt-5'>
               {feedback?.finalAssessment || "You haven't taken interview yet. Take it to improve your skills."}
             </p>
-          </div>
-          <div className='flex flex-row justify-between'>
+          <div className='flex flex-row justify-between mt-5'>
             <DisplayTechIcons techStack={techstack}/>
             <Button className='btn-primary'>
               <Link href={feedback?`interview/${interviewId}/feedback`:`interview/${interviewId}`}>
