@@ -17,6 +17,11 @@ export async function signUp(params: SignUpParams){
         await db.collection('users').doc(uid).set({
             name, email
         })
+
+        return{
+            success:true,
+            message:"Account Created Successfully. Please Sign in"
+        }
     }catch(error: any)
     {
         console.error("Error creating user",error)
