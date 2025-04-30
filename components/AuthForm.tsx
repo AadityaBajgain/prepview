@@ -68,6 +68,7 @@ const AuthForm = ({type}:{type:FormType}) => {
 
         if(!idToken){
           toast.error("Sign in failed");
+          console.error("signin failed")
           return;
         }
         await signIn({

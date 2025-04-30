@@ -23,8 +23,8 @@ const InterviewCard = ({userId,interviewId, role, type, techstack, createdAt}:In
           <h3 className='mt-5 capitalize'>
             {role} Interview
           </h3>
-          <div className='flex flex-row gap-5 mt-3'>
-            <div className='flex flex-row gap-2'>
+          <div className='flex flex-col gap-5 mt-3'>
+            <div className='flex flex-row gap-4'>
               <Image src='/calendar.svg' alt='calendar' width={22} height={22}/>
               <p>{formattedDate}</p>
               <div className='flex flex-row gap-2 items-center'>
@@ -37,7 +37,7 @@ const InterviewCard = ({userId,interviewId, role, type, techstack, createdAt}:In
               {feedback?.finalAssessment || "You haven't taken interview yet. Take it to improve your skills."}
             </p>
           </div>
-          <div className='flex flex-row justify-between'>
+          <div className='flex flex-row justify-between mt-5'>
             <DisplayTechIcons techStack={techstack}/>
             <Button className='btn-primary'>
               <Link href={feedback?`interview/${interviewId}/feedback`:`interview/${interviewId}`}>
