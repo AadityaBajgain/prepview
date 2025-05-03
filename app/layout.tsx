@@ -27,6 +27,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased pattern`}
       >
+        <h1 className="text-center font-bold text-2xl text-gray-500">In Progress</h1>
+        <p className="text-center text-gray-500 mt-2">
+          Thank you for visiting! Our site is currently under development. Stay tuned for updates!
+        </p>
         {children}
       </body>
     </html>
