@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+# PrepView
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+PrepView is an **AI-based interview preparation platform** that leverages cutting-edge technologies to assist users in preparing for interviews effectively. This project is currently under active development.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚧 Project Status
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is **under development**. Features and functionalities are being actively added and refined. Contributions and feedback are welcome!
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js**: Used as the primary framework for building the platform.
+- **TypeScript**: Ensures type safety and enhances code quality.
+- **Gemini API**: Integrated for AI-powered interview preparation.
+- **VAPI**: Used for AI voice integration.
+- **CSS**: For styling and enhancing the visual design.
+- **JavaScript**: Additional scripting and functionality.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📖 Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **AI-Powered Question Generation**: Generate interview questions tailored to specific domains.
+- **Voice Integration**: Practice with AI-driven voice simulations using VAPI.
+- **Real-Time Feedback**: Get instant feedback on your answers.
+- **Customizable Sessions**: Tailor interview sessions to your needs.
+  
+*(Add more as features are implemented.)*
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🚀 Getting Started
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AadityaBajgain/prepview.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd prepview
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Project
+
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
+2. Open your browser and go to:
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add feature name"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a Pull Request.
+
+---
+
+## 📜 License
+
+This project is licensed under [LICENSE NAME]. *(If the license is not yet decided, mention that it will be added later.)*
+
+---
+
+## 📬 Contact
+
+For any questions or suggestions, feel free to reach out via [GitHub Profile](https://github.com/AadityaBajgain).
+
+---
