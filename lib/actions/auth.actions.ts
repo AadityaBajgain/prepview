@@ -1,7 +1,6 @@
 "use server"
 
 import { db, auth } from "@/firebase/admin";
-import { CollectionReference, DocumentData } from "firebase-admin/firestore";
 import { cookies } from "next/headers";
 
 export async function signUp(params: SignUpParams){
@@ -25,10 +24,10 @@ export async function signUp(params: SignUpParams){
             success:true,
             message:"Account Created Successfully. Please Sign in"
         }
-    }catch(error: any)
+    }catch(error: unknown)
     {
         console.error("Error creating user", error);
-        if(error.code === 'auth/email-already-exists')
+        if((error as any).code === 'auth/email-already-exists')
         {
             return{
                 success: false,
@@ -55,7 +54,7 @@ export async function signIn(params: SignInParams){
         }
 
         await setSessionCookie(idToken);
-    }catch(error){
+    }catch(error: unknown){
         console.error(error);
 
         return{
@@ -104,7 +103,7 @@ export async function getCurrentUser(): Promise<User| null> {
             id: userRecord.id,
 
         } as User;
-    }catch(err)
+    }catch(err: unknown)
     {
         console.log(err);
 
