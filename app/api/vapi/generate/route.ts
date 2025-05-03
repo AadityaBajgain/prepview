@@ -13,8 +13,8 @@ export async function POST(request: Request) {
 
     try {
         const { text: questions } = await generateText({
-            model: google('gemini-2.0-flash-001'),
-            prompt: `Prepare questions for a job interview.
+        model: google('gemini-2.0-flash-001'),
+        prompt: `Prepare questions for a job interview.
         The job role is ${role}.
         The job experience level is ${level}.
         The tech stack used in the job is: ${techstack}.
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
         });
 
         const interview = {
-            role, type,level,
+            role, type, level,
             techstack: techstack.split(","),
             questions: JSON.parse(questions),
             userID: userid,
@@ -40,8 +40,8 @@ export async function POST(request: Request) {
         }
 
         await db.collection("interviews").add(interview);
-        
-        return Response.json({success:true},{status:200});
+
+        return Response.json({ success: true }, { status: 200 });
     } catch (error) {
         console.log(error);
 
