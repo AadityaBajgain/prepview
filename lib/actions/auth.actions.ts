@@ -1,6 +1,7 @@
 "use server"
 
 import { db, auth } from "@/firebase/admin";
+import { FirebaseError } from "firebase-admin/app";
 import { cookies } from "next/headers";
 
 export async function signUp(params: SignUpParams){
@@ -27,7 +28,7 @@ export async function signUp(params: SignUpParams){
     }catch(error: unknown)
     {
         console.error("Error creating user", error);
-        if((error as any).code === 'auth/email-already-exists')
+        if((error as FirebaseError).code === 'auth/email-already-exists')
         {
             return{
                 success: false,
