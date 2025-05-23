@@ -19,8 +19,7 @@ This project is **under development**. Features and functionalities are being ac
 - **Gemini API**: Integrated for AI-powered interview preparation.
 - **VAPI**: Used for AI voice integration.
 - **CSS**: For styling and enhancing the visual design.
-- **JavaScript**: Additional scripting and functionality.
-
+- **Firebase**: For database and authentication. 
 ---
 
 ## 📖 Features
