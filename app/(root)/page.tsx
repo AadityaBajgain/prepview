@@ -2,10 +2,29 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
-import { dummyInterviews } from '@/constants';
+// import { dummyInterviews } from '@/constants';
 import InterviewCard from '@/components/InterviewCard';
+import { getCurrentUser, getInterviewsByUserId, getLatestInterviews } from '@/lib/actions/auth.actions';
 
-const page = () => {
+const page = async () => {
+  const user =  await getCurrentUser();
+  console.log("Current User: ", user);
+  // const userInterviews = await getInterviewsByUserId(user?.id!);
+  // const latestInteriews = await getLatestInterviews({
+  //   userId: user?.id!
+  // })
+
+  const [userInterviews, latestInterviews] = await Promise.all([
+    await getInterviewsByUserId(user?.id!),
+    await getLatestInterviews({
+      userId: user?.id!,
+    })
+  ])
+  console.log("User Interviews: ", userInterviews);
+  const hasPastInterviews = userInterviews!?.length > 0;
+  // console.log("userInterviews: ", hasPastInterviews);
+  const hasUncomingInterviews = latestInterviews!?.length > 0;
+  // console.log("userInterviews: ",userInterviews,"LatestInterviews: ", latestInterviews);
   return (
     <>
       <section className="card-cta flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-12 px-4 sm:px-8 py-6">
@@ -31,20 +50,23 @@ const page = () => {
       <section className="flex flex-col gap-6 mt-8 px-4 sm:px-8">
         <h2 className="text-xl sm:text-2xl font-semibold">YOUR INTERVIEWS</h2>
         <div className="interviews-section ">
-          {dummyInterviews.map((interview) => (
-            <InterviewCard {...interview} key={interview.id} />
-          ))}
+          {hasPastInterviews ? (
+            userInterviews?.map((interview)=>(
+              <InterviewCard {...interview} key={interview.id} />
+          ))):
+          <p>You have&apos;t taken any interviews yet</p>
+        }
         </div>
       </section>
       <section className="flex flex-col gap-6 mt-8 px-4 sm:px-8">
         <h2 className="text-xl sm:text-2xl font-semibold">Take an Interview</h2>
-        <div className="interviews-section">
-          {dummyInterviews.map((interview) => (
-            <InterviewCard {...interview} key={interview.id} />
-          ))}
-          <p className="text-center sm:col-span-2 lg:col-span-3">
-            You haven&apos;t taken any interviews
-          </p>
+        <div className="interviews-section ">
+          {hasUncomingInterviews ? (
+            latestInterviews?.map((interview)=>(
+              <InterviewCard {...interview} key={interview.id} />
+          ))):
+          <p>There are no new interviews available.</p>
+        }
         </div>
       </section>
     </>
