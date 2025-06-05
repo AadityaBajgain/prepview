@@ -29,21 +29,23 @@ export async function POST(request: Request) {
         });
 
         const interview = {
-            role, type, level,
+            role, 
+            type, 
+            level,
             techstack: techstack.split(","),
             questions: JSON.parse(questions),
-            userID: userid,
+            userId: userid,  // <- Changed from userID to userId
             finalized: true,
             coverImage: getRandomInterviewCover(),
             createdAt: new Date().toISOString(),
         }
 
-        await db.collection("interviews").add(interview);
+        const result = await db.collection("interviews").add(interview);
+        console.log("Interview added with ID: ", result.id);
 
         return Response.json({ success: true }, { status: 200 });
     } catch (error) {
-        console.log(error);
-
+        console.error("Error adding interview: ", error);
         return Response.json({ success: false, error }, { status: 500 });
     }
 }
