@@ -16,7 +16,7 @@ interface SavedMessage {
     content: string;
 }
 
-const Agent = ({ userName,userId,type }: AgentProps) => {
+const Agent = ({ userName,userId }: AgentProps) => {
     const router = useRouter();
     const [isSpeaking, setIsSpeaking] = useState(false);
     const [callStatus, setCallStatus] = useState<CallStatus>(CallStatus.INACTIVE);

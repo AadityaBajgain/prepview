@@ -98,7 +98,7 @@ export async function getCurrentUser(): Promise<User| null> {
         .get();
 
         if(!userRecord) return null;
-
+        console.log("User Record:", userRecord.data());
         return {
             ... userRecord.data(),
             id: userRecord.id,
