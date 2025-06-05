@@ -8,18 +8,22 @@ import { getCurrentUser, getInterviewsByUserId, getLatestInterviews } from '@/li
 
 const page = async () => {
   const user =  await getCurrentUser();
-  // console.log("Current User: ", user);
+  console.log("Current User: ", user);
   // const userInterviews = await getInterviewsByUserId(user?.id!);
   // const latestInteriews = await getLatestInterviews({
   //   userId: user?.id!
   // })
-
+  console.log(user?.id!)
   const [userInterviews, latestInterviews] = await Promise.all([
     await getInterviewsByUserId(user?.id!),
     await getLatestInterviews({
       userId: user?.id!,
     })
   ])
+  // const userInterviews = await getInterviewsByUserId(user?.id!);
+  // const latestInterviews = await getLatestInterviews({
+  //   userId: user?.id!,
+  // });
   console.log("User Interviews: ", userInterviews);
   const hasPastInterviews = userInterviews!?.length > 0;
   // console.log("userInterviews: ", hasPastInterviews);

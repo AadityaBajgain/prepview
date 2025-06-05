@@ -8,7 +8,7 @@ export async function GET() {
 
 
 export async function POST(request: Request) {
-    const { type, role, level, techstack, amount, userid } = await request.json();
+    const { type, role, level, techstack, amount, userId } = await request.json();
 
     try {
         const { text: questions } = await generateText({
@@ -27,14 +27,14 @@ export async function POST(request: Request) {
         Thank you! <3
     `,
         });
-
+        console.log(techstack, role, type, level, amount, userId);
         const interview = {
             role, 
             type, 
             level,
-            techstack: techstack.split(","),
+            techstack,
             questions: JSON.parse(questions),
-            userId: userid,  // <- Changed from userID to userId
+            userId: userId,
             finalized: true,
             coverImage: getRandomInterviewCover(),
             createdAt: new Date().toISOString(),
