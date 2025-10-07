@@ -84,11 +84,6 @@ Contributions are welcome! Follow these steps to contribute:
 
 ---
 
-## 📜 License
-
-This project is licensed under [LICENSE NAME]. *(If the license is not yet decided, mention that it will be added later.)*
-
----
 
 ## 📬 Contact
 
